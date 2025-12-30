@@ -1,7 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
-import { useFormStatus } from "react-dom";
+import { useFormState, useFormStatus } from "react-dom";
 import { useEffect, useRef } from "react";
 import { getAnalysis, type FormState } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
@@ -71,7 +70,7 @@ function AnalysisSection({ state }: { state: FormState }) {
 
 
 export default function Home() {
-  const [state, formAction] = useActionState(getAnalysis, initialState);
+  const [state, formAction] = useFormState(getAnalysis, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
