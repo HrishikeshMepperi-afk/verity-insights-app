@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useFormState, useFormStatus } from "react-dom";
@@ -15,6 +16,7 @@ import { Bot, Feather, Loader2, Search } from "lucide-react";
 
 const initialState: FormState = {
   message: "",
+  data: null,
 };
 
 function SubmitButton() {
@@ -38,24 +40,12 @@ function SubmitButton() {
 
 function AnalysisSection({ state }: { state: FormState }) {
   const { pending } = useFormStatus();
-  const hasData = state.data;
-  const prevPending = useRef(false);
-  
-  useEffect(() => {
-    prevPending.current = pending;
-  }, [pending]);
-
-  const justFinishedLoading = !pending && prevPending.current;
 
   if (pending) {
     return <LoadingSkeleton />;
   }
   
-  if (hasData && justFinishedLoading) {
-    return <AnalysisResultDisplay data={state.data} />;
-  }
-
-  if (hasData && !pending) {
+  if (state.data) {
     return <AnalysisResultDisplay data={state.data} />;
   }
 
