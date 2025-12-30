@@ -1,9 +1,3 @@
 {
-  "name": "verity-insights",
-  "builds": [
-    {
-      "src": "next.config.ts",
-      "use": "@vercel/next"
-    }
-  ]
+  "name": "verity-insights"
 }
