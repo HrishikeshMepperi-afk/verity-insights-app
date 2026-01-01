@@ -1,5 +1,3 @@
-# Firebase Studio
+# Hackathon project
 
-This is a NextJS starter in Firebase Studio.
-
-To get started, take a look at src/app/page.tsx.
+A simple project that utilizes the gemini api for detecting if any information is misinformation or not
